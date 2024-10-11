@@ -4,6 +4,9 @@ public class mainMenu {
     private Scanner player = new Scanner(System.in);
     private boolean isOn = true;
     private int input = 0;
+    public boolean isExit(){
+        return isOn;
+    }
     public void menu(){
         while(isOn){
             System.out.println("=====================================");
