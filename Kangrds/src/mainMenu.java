@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class mainMenu {
-    private Scanner player = new Scanner(System.in);
     private boolean isOn = true;
     private int input = 0;
     public void menu(){
@@ -14,7 +13,7 @@ public class mainMenu {
             System.out.println("=[3]setting                         =");
             System.out.println("=[4]exit                            =");
             System.out.println("=====================================");
-            String inputGet = player.nextLine();
+            String inputGet = loginMenu.scan.nextLine();
             try {
                 input = Integer.parseInt(inputGet);
             }
