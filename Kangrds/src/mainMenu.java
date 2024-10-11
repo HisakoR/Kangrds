@@ -13,8 +13,9 @@ public class mainMenu {
             System.out.println("=                kangrds            =");
             System.out.println("=====================================");
             System.out.println("=[1]start                           =");
-            System.out.println("=[2]setting                         =");
-            System.out.println("=[3]exit                            =");
+            System.out.println("=[2]deck                            =");
+            System.out.println("=[3]setting                         =");
+            System.out.println("=[4]exit                            =");
             System.out.println("=====================================");
             String inputGet = player.nextLine();
             try {
@@ -30,6 +31,9 @@ public class mainMenu {
                 //event
             }
             else if(input == 3){
+                //event
+            }
+            else if(input == 4){
                 isOn = false;
             }
             else {
