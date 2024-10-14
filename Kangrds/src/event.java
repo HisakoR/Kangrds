@@ -48,7 +48,7 @@ public class event {
         //标化考试事件
     }
 
-    //fun值事件
+    //fun值事件链
     public void funA(){
         //恋爱事件 | 进度1
     }

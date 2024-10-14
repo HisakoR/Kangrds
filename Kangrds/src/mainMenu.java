@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import javafx.util.*;
 
 public class mainMenu {
     private boolean isOn = true;
@@ -6,7 +7,7 @@ public class mainMenu {
     public void menu(){
         while(isOn){
             System.out.println("=====================================");
-            System.out.println("=                kangrds            =");
+            System.out.println("=                康德锶              =");
             System.out.println("=====================================");
             System.out.println("=[1]start                           =");
             System.out.println("=[2]deck                            =");
