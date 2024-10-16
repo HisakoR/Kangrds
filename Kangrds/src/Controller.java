@@ -16,7 +16,7 @@ public class Controller {
     @FXML
     public void saveData(MouseEvent event){
         boolean dataFound = false;//是否找到目标
-        if (!userField.getText().isEmpty()){//如果用户输入不为空
+        if ((!userField.getText().isEmpty() && !userField.getText().contains(" ")) && (!passField.getText().isEmpty() && !passField.getText().contains(" "))){//如果用户输入不为空
             for(int x = 0; x < loginMenu.findUsers().size(); x++){
                 System.out.println("库用户名检测|" + loginMenu.findUsers().get(x).substring(0,loginMenu.findUsers().get(x).indexOf(",")));
                 System.out.println("库用户密码检测|" + loginMenu.findUsers().get(x).substring(loginMenu.findUsers().get(x).indexOf(",") + 1));
@@ -56,9 +56,24 @@ public class Controller {
             errorInfo.setText("并非输入");
         }
         else {
-            loginMenu.saveUser(userField.getText(), passField.getText());
-            errorInfo.setText("注册成功");
-            System.out.println("用户信息已录入");
+            boolean userIn = false;
+            for(int x = 0; x < loginMenu.findUsers().size(); x++){
+                System.out.println("库用户名检测|" + loginMenu.findUsers().get(x).substring(0,loginMenu.findUsers().get(x).indexOf(",")));
+                if (userField.getText().equals(loginMenu.findUsers().get(x).substring(0,loginMenu.findUsers().get(x).indexOf(",")))){//检测库中是否有目标用户名
+                    System.out.println("此账户名已使用");
+                    errorInfo.setText("此账户名已使用");
+                    userIn = false;
+                    break;
+                }
+                else {
+                    userIn = true;
+                }
+            }
+            if(userIn){
+                loginMenu.saveUser(userField.getText(), passField.getText());
+                errorInfo.setText("注册成功");
+                System.out.println("用户信息已录入");
+            }
         }
     }
 }
