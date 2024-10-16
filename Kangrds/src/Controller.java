@@ -38,13 +38,12 @@ public class Controller {
                 System.out.println("用户输入: " + userField.getText());
                 System.out.println("密码输入: " + passField.getText());
                 errorInfo.setText("欢迎！ " + userField.getText());
-                //=======这里有bug=======//
-                Parent root = FXMLLoader.load(getClass().getResource("src/mainMenu.fxml"));
+
+                Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-                //=======这里有bug=======//
             }
             else{
                 System.out.println("数据库无此用户或密码错误");
