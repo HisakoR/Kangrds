@@ -30,7 +30,7 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <Button layoutX="766.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#saveData" prefHeight="52.0" prefWidth="132.0" text="保存">
+      <Button layoutX="735.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#saveData" prefHeight="52.0" prefWidth="132.0" text="登入">
          <font>
             <Font size="28.0" />
          </font>
@@ -40,15 +40,25 @@
             <Font size="50.0" />
          </font>
       </Text>
-      <Button layoutX="978.0" layoutY="468.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="132.0" text="退出">
+      <Button layoutX="1010.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="52.0" prefWidth="132.0" text="退出">
          <font>
             <Font size="28.0" />
          </font>
       </Button>
-      <ImageView fitHeight="752.0" fitWidth="816.0" layoutX="-223.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="730.0" fitWidth="819.0" layoutX="-223.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/lgin.png" />
          </image>
       </ImageView>
+      <Text fx:id="errorInfo" fill="RED" layoutX="820.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="236.2990016937256">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Button layoutX="873.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#saveUser" prefHeight="52.0" prefWidth="132.0" text="注册">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
