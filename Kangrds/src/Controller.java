@@ -1,9 +1,14 @@
 import javafx.fxml.FXML;
-import javafx.scene.SubScene;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 
 public class Controller {
     @FXML
@@ -14,7 +19,7 @@ public class Controller {
     private Text errorInfo;
 
     @FXML
-    public void saveData(MouseEvent event){
+    public void saveData(MouseEvent event) throws IOException {
         boolean dataFound = false;//是否找到目标
         if ((!userField.getText().isEmpty() && !userField.getText().contains(" ")) && (!passField.getText().isEmpty() && !passField.getText().contains(" "))){//如果用户输入不为空
             for(int x = 0; x < loginMenu.findUsers().size(); x++){
@@ -33,6 +38,13 @@ public class Controller {
                 System.out.println("用户输入: " + userField.getText());
                 System.out.println("密码输入: " + passField.getText());
                 errorInfo.setText("欢迎！ " + userField.getText());
+                //=======这里有bug=======//
+                Parent root = FXMLLoader.load(getClass().getResource("src/mainMenu.fxml"));
+                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                //=======这里有bug=======//
             }
             else{
                 System.out.println("数据库无此用户或密码错误");
