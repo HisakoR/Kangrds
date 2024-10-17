@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#timeGreeting" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.mainController">
+   <children>
+      <ImageView fitHeight="597.0" fitWidth="547.0" layoutX="607.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/default.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="88.0" layoutX="1134.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
+      <Text fx:id="greetingMain" layoutX="72.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="greeting">
+         <font>
+            <Font size="98.0" />
+         </font>
+      </Text>
+      <Button layoutX="116.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#showBattle" prefHeight="44.0" prefWidth="233.0" text="开战" />
+      <Text fx:id="subtitle" layoutX="72.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="subtitle">
+         <font>
+            <Font size="56.0" />
+         </font>
+      </Text>
+      <Text fx:id="userID" layoutX="833.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="playerName" textAlignment="RIGHT" wrappingWidth="267.85601806640625">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="1023.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LV." wrappingWidth="68.28799438476568">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="userLevel" layoutX="1067.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="37.28799438476568">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="userIcon" fitHeight="88.0" fitWidth="80.0" layoutX="1137.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icon.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="88.0" layoutX="1113.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" width="5.0" />
+      <Button layoutX="116.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#showDecking" prefHeight="44.0" prefWidth="233.0" text="卡组" />
+      <Button layoutX="116.0" layoutY="465.0" mnemonicParsing="false" onMouseClicked="#showModification" prefHeight="44.0" prefWidth="233.0" text="拓展" />
+      <Button layoutX="116.0" layoutY="523.0" mnemonicParsing="false" onMouseClicked="#showSetting" prefHeight="44.0" prefWidth="233.0" text="设置" />
+      <Button layoutX="116.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="44.0" prefWidth="233.0" text="爷不干了" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="272.0" layoutX="96.0" layoutY="353.0" stroke="BLACK" strokeType="INSIDE" width="7.0" />
+   </children>
+</AnchorPane>
