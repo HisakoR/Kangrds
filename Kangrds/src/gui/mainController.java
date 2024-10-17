@@ -1,14 +1,19 @@
 package gui;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-
-import java.lang.reflect.Array;
+import javafx.stage.Stage;
+import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class mainController {
     @FXML
@@ -25,12 +30,15 @@ public class mainController {
     private ArrayList<String> afternoon = new ArrayList<String>(Arrays.asList("午饭如何？", "伸个懒腰吧！", "下午也要努力哦！")); //下午副标题合集
     private ArrayList<String> evening = new ArrayList<String>(Arrays.asList("晚餐如何？", "休息一下吧！", "明天也要努力哦！")); //晚上副标题合集
     private ArrayList<String> midnight = new ArrayList<String>(Arrays.asList("zzz...", "早点休息吧...", "还不睡觉吗？")); //深夜副标题合集
+    Random rand = new Random();
 
-    public void timeGreeting(){
-        int randomNum = (int)(Math.random()*10) + 3;
+    @FXML
+    public void timeGreeting(){//控制问候标题和副标题
+        int randomNum = rand.nextInt(3);//生成一个在[0,3)中的随机数
         LocalDateTime currentTime = LocalDateTime.now(); //获取时间
         int hour = currentTime.getHour();
-
+        System.out.println("获取的随机数" + randomNum);
+        System.out.println("获取的小时：" + hour);
         if (hour >= 6 && hour < 12) //六点到十一点为早晨
         {
             greetingMain.setText("早上好！");
@@ -51,5 +59,30 @@ public class mainController {
             greetingMain.setText("深夜了...");
             subtitle.setText(midnight.get(randomNum));
         }
+    }
+    @FXML
+    public void showBattle(){
+
+    }
+    @FXML
+    public void showDecking(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("decking.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void showModification(){
+
+    }
+    @FXML
+    public void showSetting(){
+
+    }
+    @FXML
+    public void exit(MouseEvent event){
+        System.out.println("进程结束");
+        System.exit(0);
     }
 }
