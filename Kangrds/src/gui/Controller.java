@@ -41,6 +41,11 @@ public class Controller {
     public Random rand = new Random();
     private static loginMenu user = new loginMenu();
 
+    //设置标题的方法
+    public void setGreeting(String greeting, String sub) {
+        greetingMain.setText(greeting);
+        subtitle.setText(sub);
+    }
     @FXML
     public void timeGreeting(){//控制问候标题和副标题
         int randomNum = rand.nextInt(3);//生成一个在[0,3)中的随机数
@@ -50,25 +55,17 @@ public class Controller {
         System.out.println("获取的小时：" + hour);
         userID.setText(user.getUserName());
         System.out.println("用户名：" + user.getUserName());
-        if (hour >= 6 && hour < 12) //六点到十一点为早晨
-        {
-            greetingMain.setText("早上好！");
-            subtitle.setText(morning.get(randomNum));
+        if (hour >= 6 && hour < 12) {
+            setGreeting("早上好！", morning.get(randomNum));
         }
-        else if (hour >= 12 && hour < 18) //十二点到五点为下午
-        {
-            greetingMain.setText("下午好！");
-            subtitle.setText(afternoon.get(randomNum));
+        else if (hour >= 12 && hour < 18) {
+            setGreeting("下午好！", afternoon.get(randomNum));
         }
-        else if (hour >= 18 && hour < 23) //六点到十一点为晚上
-        {
-            greetingMain.setText("晚上好！");
-            subtitle.setText(evening.get(randomNum));
+        else if (hour >= 18 && hour < 23) {
+            setGreeting("晚上好！", evening.get(randomNum));
         }
-        else //除此之外算作深夜
-        {
-            greetingMain.setText("深夜了...");
-            subtitle.setText(midnight.get(randomNum));
+        else {
+            setGreeting("深夜了...", midnight.get(randomNum));
         }
     }
     @FXML
@@ -111,8 +108,13 @@ public class Controller {
             if(dataFound){
                 System.out.println("用户输入: " + userField.getText());
                 System.out.println("密码输入: " + passField.getText());
+
                 //跳转到主界面场景
-                Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+                Parent root = loader.load();
+                Controller controller = loader.getController();
+                controller.timeGreeting();
+
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
