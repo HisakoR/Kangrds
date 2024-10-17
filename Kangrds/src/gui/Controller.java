@@ -112,8 +112,8 @@ public class Controller {
                 //跳转到主界面场景
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
                 Parent root = loader.load();
-                Controller controller = loader.getController();
-                controller.timeGreeting();
+                Controller controller = loader.getController();//调取目标场景的controller的控制器
+                controller.timeGreeting();//使用控制器调用timeGreeting
 
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
