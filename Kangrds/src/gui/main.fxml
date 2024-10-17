@@ -45,7 +45,7 @@
             <Font size="28.0" />
          </font>
       </Button>
-      <ImageView fitHeight="730.0" fitWidth="819.0" layoutX="-223.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="732.0" fitWidth="756.0" layoutX="-158.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/lgin.png" />
          </image>
