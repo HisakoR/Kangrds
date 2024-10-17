@@ -69,8 +69,12 @@ public class Controller {
         }
     }
     @FXML
-    public void showBattle(){
-
+    public void showBattle(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("battle.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     public void showDecking(MouseEvent event) throws IOException {
@@ -81,12 +85,20 @@ public class Controller {
         stage.show();
     }
     @FXML
-    public void showModification(){
-
+    public void showModification(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("modification.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
-    public void showSetting(){
-
+    public void showSetting(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("setting.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     public void saveData(MouseEvent event) throws IOException {
@@ -161,5 +173,19 @@ public class Controller {
                 System.out.println("用户信息已录入");
             }
         }
+    }
+    //通用 - 返回主菜单的方法
+    @FXML
+    public void returnMain(MouseEvent event) throws IOException {
+        System.out.println("返回已调用");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();//调取目标场景的controller的控制器
+        controller.timeGreeting();//使用控制器调用timeGreeting
+
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
