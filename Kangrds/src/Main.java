@@ -5,10 +5,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("gui/main.fxml"));
         primaryStage.setTitle("大混战KC ~ v0.01");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
