@@ -10,9 +10,8 @@ public class loginMenu{
     private static String routePath = "src/userInfo/user.udt";
 
     //对外方法
-    public loginMenu(String name, String pass){
-        this.userName = name;
-        this.password = pass;
+    public loginMenu(){
+
     }
     //udt文件目标，输出为arraylist
     public static ArrayList<String> findUsers(){
@@ -46,5 +45,9 @@ public class loginMenu{
     }
     public String getPassword(){
         return password;
+    }
+    public void setUser(String name, String pass){
+        userName = name;
+        password = pass;
     }
 }

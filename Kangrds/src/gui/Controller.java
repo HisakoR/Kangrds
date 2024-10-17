@@ -33,11 +33,13 @@ public class Controller {
     private ImageView userIcon;
     @FXML
     private Text userLevel;
+
     private ArrayList<String> morning = new ArrayList<String>(Arrays.asList("睡的如何？", "美好的一天开始了！", "今天也要努力哦！"));//早晨副标题合集
     private ArrayList<String> afternoon = new ArrayList<String>(Arrays.asList("午饭如何？", "伸个懒腰吧！", "下午也要努力哦！")); //下午副标题合集
     private ArrayList<String> evening = new ArrayList<String>(Arrays.asList("晚餐如何？", "休息一下吧！", "明天也要努力哦！")); //晚上副标题合集
     private ArrayList<String> midnight = new ArrayList<String>(Arrays.asList("zzz...", "早点休息吧...", "还不睡觉吗？")); //深夜副标题合集
-    Random rand = new Random();
+    public Random rand = new Random();
+    private static loginMenu user = new loginMenu();
 
     @FXML
     public void timeGreeting(){//控制问候标题和副标题
@@ -46,6 +48,8 @@ public class Controller {
         int hour = currentTime.getHour();
         System.out.println("获取的随机数" + randomNum);
         System.out.println("获取的小时：" + hour);
+        userID.setText(user.getUserName());
+        System.out.println("用户名：" + user.getUserName());
         if (hour >= 6 && hour < 12) //六点到十一点为早晨
         {
             greetingMain.setText("早上好！");
@@ -97,25 +101,22 @@ public class Controller {
                 if (userField.getText().equals(loginMenu.findUsers().get(x).substring(0,loginMenu.findUsers().get(x).indexOf(",")))){//检测库中是否有目标用户名
                     if(passField.getText().equals(loginMenu.findUsers().get(x).substring(loginMenu.findUsers().get(x).indexOf(",") + 1))){//检测密码是否正确
                         dataFound = true;
+                        user.setUser(userField.getText(), passField.getText());
+                        System.out.println("检测完毕，此时的userName是：" + user.getUserName());
                         break;//直接跳出
                     }
                 }
             }
             //找到目标后
             if(dataFound){
-                loginMenu user = new loginMenu(userField.getText(), passField.getText());
                 System.out.println("用户输入: " + userField.getText());
                 System.out.println("密码输入: " + passField.getText());
-                errorInfo.setText("欢迎！ " + userField.getText());
                 //跳转到主界面场景
                 Parent root = FXMLLoader.load(getClass().getResource("mainMenu.fxml"));
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-
-                timeGreeting();//修改目标问候
-                userID.setText(userField.getText());//修改用户id
             }
             else{
                 System.out.println("数据库无此用户或密码错误");
