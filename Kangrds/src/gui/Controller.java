@@ -77,8 +77,8 @@ public class Controller {
         stage.show();
     }
     @FXML
-    public void showDecking(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("decking.fxml"));
+    public void showProfile(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

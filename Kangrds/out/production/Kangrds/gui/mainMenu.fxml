@@ -48,7 +48,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="88.0" layoutX="1113.0" layoutY="67.0" stroke="BLACK" strokeType="INSIDE" width="5.0" />
-      <Button layoutX="116.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#showDecking" prefHeight="44.0" prefWidth="233.0" text="卡组" />
+      <Button layoutX="116.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#showProfile" prefHeight="44.0" prefWidth="233.0" text="资料" />
       <Button layoutX="116.0" layoutY="465.0" mnemonicParsing="false" onMouseClicked="#showModification" prefHeight="44.0" prefWidth="233.0" text="拓展" />
       <Button layoutX="116.0" layoutY="523.0" mnemonicParsing="false" onMouseClicked="#showSetting" prefHeight="44.0" prefWidth="233.0" text="设置" />
       <Button layoutX="116.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="44.0" prefWidth="233.0" text="爷不干了" />
