@@ -131,7 +131,7 @@ public class Controller {
                 controller.timeGreeting();//使用控制器调用timeGreeting
 
 //=====================================================exp BUG=====================================================
-                //调节主界面的音乐 *20241019可能出现bug
+                //调节主界面的音乐 *20241019可能出现bug，原因未知
                 try {
                     // 指定音频文件的路径
                     File audioFile = new File("src/audio/theProcess.wav");
