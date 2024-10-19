@@ -10,6 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import javax.sound.sampled.*;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -127,6 +130,24 @@ public class Controller {
                 Controller controller = loader.getController();//调取目标场景的controller的控制器
                 controller.timeGreeting();//使用控制器调用timeGreeting
 
+//=====================================================exp BUG=====================================================
+                //调节主界面的音乐 *20241019可能出现bug
+                try {
+                    // 指定音频文件的路径
+                    File audioFile = new File("src/audio/theProcess.wav");
+                    AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
+
+                    // 获取音频格式
+                    Clip clip = AudioSystem.getClip();
+                    clip.open(audioInputStream);
+                    clip.start();
+                }
+                catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+                    e.printStackTrace();
+                }
+//=====================================================exp BUG=====================================================
+
+                //显示界面
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);

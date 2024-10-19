@@ -8,22 +8,25 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
    <children>
-      <ImageView fitHeight="605.0" fitWidth="390.0" layoutX="30.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/USA.png" />
-         </image></ImageView>
-      <ImageView fitHeight="654.0" fitWidth="390.0" layoutX="445.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/USA.png" />
-         </image></ImageView>
-      <ImageView fitHeight="654.0" fitWidth="390.0" layoutX="860.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/USA.png" />
-         </image></ImageView>
       <Button layoutX="30.0" layoutY="631.0" mnemonicParsing="false" onMouseClicked="#returnMain" prefHeight="62.0" prefWidth="151.0" text="返回主菜单">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
+      <ImageView fitHeight="356.0" fitWidth="202.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/USA.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="356.0" fitWidth="202.0" layoutX="226.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/USA.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="356.0" fitWidth="202.0" layoutX="438.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/USA.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
