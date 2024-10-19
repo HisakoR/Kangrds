@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+//这是一串测试 This is a test statement
+
 public class Controller {
     @FXML
     private TextField userField;
