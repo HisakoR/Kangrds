@@ -131,23 +131,7 @@ public class Controller {
                 Parent root = loader.load();
                 Controller controller = loader.getController();//调取目标场景的controller的控制器
                 controller.timeGreeting();//使用控制器调用timeGreeting
-
-//=====================================================exp BUG=====================================================
-                //调节主界面的音乐 *20241019可能出现bug，原因未知
-                try {
-                    // 指定音频文件的路径
-                    File audioFile = new File("src/audio/theProcess.wav");
-                    AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
-
-                    // 获取音频格式
-                    Clip clip = AudioSystem.getClip();
-                    clip.open(audioInputStream);
-                    clip.start();
-                }
-                catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-                    e.printStackTrace();
-                }
-//=====================================================exp BUG=====================================================
+                mediaPlayer.playTarget("src/audio/theProcess.wav");
 
                 //显示界面
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
