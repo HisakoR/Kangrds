@@ -21,7 +21,7 @@
             <Font size="98.0" />
          </font>
       </Text>
-      <Button layoutX="116.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#showBattle" prefHeight="44.0" prefWidth="233.0" text="开战" />
+      <Button layoutX="116.0" layoutY="356.0" mnemonicParsing="false" onMouseClicked="#showDecking" prefHeight="44.0" prefWidth="233.0" text="开战" />
       <Text fx:id="subtitle" layoutX="72.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="subtitle">
          <font>
             <Font size="56.0" />
