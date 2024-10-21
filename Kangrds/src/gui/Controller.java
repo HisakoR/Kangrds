@@ -10,11 +10,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import javax.sound.sampled.*;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+
+//这是一串测试 This is a test statement
 
 public class Controller {
     @FXML
@@ -126,7 +131,9 @@ public class Controller {
                 Parent root = loader.load();
                 Controller controller = loader.getController();//调取目标场景的controller的控制器
                 controller.timeGreeting();//使用控制器调用timeGreeting
+                mediaPlayer.playTarget("src/audio/theProcess.wav");
 
+                //显示界面
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);

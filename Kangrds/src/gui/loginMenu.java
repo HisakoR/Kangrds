@@ -11,9 +11,9 @@ public class loginMenu{
 
     //对外方法
     public loginMenu(){
-
+        //Constructor
     }
-    //udt文件目标，输出为arraylist
+    //扫描udt文件目标，输出为arraylist
     public static ArrayList<String> findUsers(){
         int cal = 0;
         ArrayList<String> users = new ArrayList<String>();
