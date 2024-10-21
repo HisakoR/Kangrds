@@ -12,7 +12,6 @@ public class mediaPlayer {
             File audioFile = new File(pathToMus);
             System.out.println("播放音频：" + pathToMus);
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(audioFile);
-
             // 获取音频格式
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
