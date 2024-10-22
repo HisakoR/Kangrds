@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -14,6 +15,8 @@ import javafx.stage.Stage;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,13 +55,19 @@ public class Controller {
         subtitle.setText(sub);
     }
     @FXML
-    public void timeGreeting(){//控制问候标题和副标题
+    public void timeGreeting() throws MalformedURLException {//控制问候标题和副标题
         int randomNum = rand.nextInt(3);//生成一个在[0,3)中的随机数
         LocalDateTime currentTime = LocalDateTime.now(); //获取时间
         int hour = currentTime.getHour();
         System.out.println("获取的随机数" + randomNum);
         System.out.println("获取的小时：" + hour);
         userID.setText(user.getUserName());
+        //===*20241022添加可能有bug===
+        System.out.println("检测用户图片路径：" + user.getPathAvatar());
+        Image image = new Image("file:" + user.getPathAvatar());
+        userIcon.setImage(image);
+        //===========================
+        userLevel.setText(user.getUserLevel());
         System.out.println("用户名：" + user.getUserName());
         if (hour >= 6 && hour < 12) {
             setGreeting("早上好！", morning.get(randomNum));
@@ -72,6 +81,14 @@ public class Controller {
         else {
             setGreeting("深夜了...", midnight.get(randomNum));
         }
+    }
+    @FXML
+    public void showDecking(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("decking.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
     public void showBattle(MouseEvent event) throws IOException {
@@ -111,12 +128,11 @@ public class Controller {
         if ((!userField.getText().isEmpty() && !userField.getText().contains(" ")) && (!passField.getText().isEmpty() && !passField.getText().contains(" "))){//如果用户输入不为空
             for(int x = 0; x < loginMenu.findUsers().size(); x++){
                 System.out.println("库用户名检测|" + loginMenu.findUsers().get(x).substring(0,loginMenu.findUsers().get(x).indexOf(",")));
-                System.out.println("库用户密码检测|" + loginMenu.findUsers().get(x).substring(loginMenu.findUsers().get(x).indexOf(",") + 1));
                 if (userField.getText().equals(loginMenu.findUsers().get(x).substring(0,loginMenu.findUsers().get(x).indexOf(",")))){//检测库中是否有目标用户名
-                    if(passField.getText().equals(loginMenu.findUsers().get(x).substring(loginMenu.findUsers().get(x).indexOf(",") + 1))){//检测密码是否正确
+                    if(passField.getText().equals(user.userLine(userField.getText())[1])){//检测密码是否正确
+                        System.out.println("库用户密码检测|" + user.userLine(userField.getText())[1]);
                         dataFound = true;
-                        user.setUser(userField.getText(), passField.getText());
-                        System.out.println("检测完毕，此时的userName是：" + user.getUserName());
+                        user.setUser(user.userLine(userField.getText()));
                         break;//直接跳出
                     }
                 }
@@ -175,7 +191,7 @@ public class Controller {
                 }
             }
             if(userIn){
-                loginMenu.saveUser(userField.getText(), passField.getText());
+                user.saveUser(userField.getText(), passField.getText());
                 errorInfo.setText("注册成功");
                 System.out.println("用户信息已录入");
             }
