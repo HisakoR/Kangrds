@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,14 +55,18 @@ public class Controller {
         subtitle.setText(sub);
     }
     @FXML
-    public void timeGreeting(){//控制问候标题和副标题
+    public void timeGreeting() throws MalformedURLException {//控制问候标题和副标题
         int randomNum = rand.nextInt(3);//生成一个在[0,3)中的随机数
         LocalDateTime currentTime = LocalDateTime.now(); //获取时间
         int hour = currentTime.getHour();
         System.out.println("获取的随机数" + randomNum);
         System.out.println("获取的小时：" + hour);
         userID.setText(user.getUserName());
-        //*请添加获取用户头像的方法
+        //===*20241022添加可能有bug===
+        System.out.println("检测用户图片路径：" + user.getPathAvatar());
+        Image image = new Image("file:" + user.getPathAvatar());
+        userIcon.setImage(image);
+        //===========================
         userLevel.setText(user.getUserLevel());
         System.out.println("用户名：" + user.getUserName());
         if (hour >= 6 && hour < 12) {

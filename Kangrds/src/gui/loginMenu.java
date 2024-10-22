@@ -18,6 +18,7 @@ public class loginMenu{
     public loginMenu(){
         //Constructor
     }
+
     //扫描udt文件目标，输出为arraylist
     public static ArrayList<String> findUsers(){
         int cal = 0;
@@ -33,6 +34,7 @@ public class loginMenu{
         }
         return users;
     }
+
     //使用用户名搜索目标用户行，并按逗号分割输出为string数列
     public String[] userLine(String userName) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(routePath));
@@ -52,7 +54,7 @@ public class loginMenu{
     public void saveUser(String userName, String password){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(routePath, true))) {
             bw.newLine();        //添加换行符
-            bw.write(userName + "," + password + "," + createID() + "," + getUserLevel() + "," + "写点什么吧" + "," + "src/userInfo/avatars/default.png");
+            bw.write(userName + "," + password + "," + createID() + "," + getUserLevel() + "," + "一把十个手" + "," + "src/userInfo/avatars/default.png");
             System.out.println("用户信息已添加: " + userName + "," + password);
         }
         catch (IOException e) {
