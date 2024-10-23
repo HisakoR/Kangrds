@@ -42,6 +42,17 @@ public class Controller {
     @FXML
     private Text userLevel;
 
+    @FXML
+    private Text profileName;
+    @FXML
+    private Text profileID;
+    @FXML
+    private Text profileSign;
+    @FXML
+    private Text profileLevel;
+    @FXML
+    private ImageView profileIcon;
+
     private ArrayList<String> morning = new ArrayList<String>(Arrays.asList("睡的如何？", "美好的一天开始了！", "今天也要努力哦！"));//早晨副标题合集
     private ArrayList<String> afternoon = new ArrayList<String>(Arrays.asList("午饭如何？", "伸个懒腰吧！", "下午也要努力哦！")); //下午副标题合集
     private ArrayList<String> evening = new ArrayList<String>(Arrays.asList("晚餐如何？", "休息一下吧！", "明天也要努力哦！")); //晚上副标题合集
@@ -98,14 +109,31 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+    //设置用户资料界面
+    @FXML
+    public void profileController(){
+        Image image = new Image("file:" + user.getPathAvatar());
+        profileID.setText(user.getID());
+        profileIcon.setImage(image);
+        profileLevel.setText(String.valueOf(user.getLevel()));
+        profileName.setText(user.getUserName());
+        profileSign.setText(user.getIntroduction());
+    }
+    //=====20241023记得将其他界面格式替换为此方法中的实例以便维护=====
     @FXML
     public void showProfile(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+        Parent root = loader.load();
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+
+        Controller controller = loader.getController();
+        controller.profileController();
+
         stage.show();
     }
+    //==========================================================
     @FXML
     public void showModification(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("modification.fxml"));

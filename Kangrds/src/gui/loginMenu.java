@@ -99,12 +99,24 @@ public class loginMenu{
     public String getUserName(){
         return userName;
     }
+    //====别删====
     public String getPassword(){
         return password;
     }
+    //==========
     public String getPathAvatar(){
         return pathAvatar;
     }
+    public String getIntroduction(){
+        return introduction;
+    }
+    public String getID(){
+        return userID;
+    }
+    public int getLevel(){
+        return userLevel;
+    }
+
     public static String getUserLevel(){
         return String.valueOf(userLevel);
     }
