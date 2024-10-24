@@ -60,6 +60,18 @@ public class Controller {
     public Random rand = new Random();
     private static loginMenu user = new loginMenu();
 
+    //切换场景的方法，参数1鼠标事件，参数二场景路径
+    public FXMLLoader setScene(MouseEvent event, String resource) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(resource));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        //返回loader以便使用controller
+        return loader;
+    }
+
     //设置标题的方法
     public void setGreeting(String greeting, String sub) {
         greetingMain.setText(greeting);
@@ -119,21 +131,15 @@ public class Controller {
         profileName.setText(user.getUserName());
         profileSign.setText(user.getIntroduction());
     }
+
     //=====20241023记得将其他界面格式替换为此方法中的实例以便维护=====
     @FXML
     public void showProfile(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-
-        Controller controller = loader.getController();
+        Controller controller = setScene(event, "profile.fxml").getController();
         controller.profileController();
-
-        stage.show();
     }
     //==========================================================
+
     @FXML
     public void showModification(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("modification.fxml"));
